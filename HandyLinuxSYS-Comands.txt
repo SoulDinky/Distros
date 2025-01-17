@@ -1,0 +1,113 @@
+f===========================================================================================
+////////////////////////////////////  NOTE  24  ////////////////////////////////////////////
+============================================================================================
+//////////////////////////////  Linux - SYS - Command  /////////////////////////////////////
+--------------------------------------------------------------------------------------------
+/////////////////////////////  apt update & apt upgrade  ///////////////////////////////////
+/////////////////////////////  apt autoremove            ///////////////////////////////////
+/////////////////////////////  apt list --upgradable     ///////////////////////////////////
+============================================================================================
+## Wiping the entire disk
+root@xx:  dd if=/dev/zero of=/dev/mmcblk1 bs=4096 status=progress
+root@xx:  wipe --ALL /dev/mmcblk*
+
+
+## Wiping the Master boot record (MBR)
+root@xx:  dd if=/dev/zero of=/dev/hdX bs=446 count=1 #replace X with the target drive letter.
+root@xx:  dd if=/dev/zero of=/dev/hdmmcblk0 bs=446 count=1
+
+## Wiping partitions
+root@xx:  dd if=/dev/zero of=/dev/sdX2 bs=1M #replace X with the target drive letter.
+root@xx:  dd if=/dev/urandom of=/dev/sdX3 bs=1M #replace X with the target drive letter.
+
+## WIPEFS
+root@xx:  wipefs /dev/sda
+root@xx:  wipefs /dev/sda*
+root@xx:  wipefs --all /dev/mmcblk*  ////  (-a or --all). To erase all signatures on /dev/mmcblk
+root@xx:  
+root@xx:
+
+## Remove  
+root@xx:  rm -rf /dev/mmcblk*
+root@xx:  
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------
+# Install software from source code.
+root@xx: tar zxvf software-file.tar.gz
+root@xx: cd software-file
+root@xx: ./configure
+root@xx: make
+root@xx: make install 
+--------------------------------------------------------------
+root@xx: apt remove libreoffice*
+root@xx: chmod 777 *.deb
+
+root@xx: dpkg -i *.deb
+root@xx: dpkg -i xxxx.xxxxx64.deb 
+or
+root@xx: apt install /media/xx/SD32GB/PureRef-1.11.1_x64.deb
+
+
+root@xx: neofetch
+root@xx: chmod -R 777 /home/g1/pico-prj
+root@xx: cat /proc/cpuinfo
+
+Creating and Formatting USB Device
+-----------------------------------
+--> sudo umount /dev/sda
+--> sudo parted /dev/sda --script -- mklabel msdos
+--> sudo parted /dev/sda --script -- mkpart primary fat32 1MiB 100%
+
+
+Format the USB device to FAT32:
+---------------------------------
+--> sudo mkfs.vfat -F32 /dev/sda1
+
+
+Check if the device has been partitioned correctly:
+---------------------------------------------------
+--> sudo parted /dev/sda --script print
+
+
+
+That completes the entire format process.
+
+
+How to change a USB stick name
+---------------------------------
+First, obtain the location of your USB drive:
+~$ fdisk -l
+
+Assuming that your device location is /dev/sda/:
+~$ mlabel -i /dev/sda -s ::"LABEL HERE"
+-------------------------------------------------------
+mlabel -i /dev/sda -s ::"MX21.2.1"
+
+
+
+--------------------------------------------------------------
+# Make the AppImage executable: 
+root@xx:  chmod +x my.AppImage
+
+# Run the AppImage: 
+root@xx:  ./my.AppImage
+
+
+
+
+
+
+
+
+
+
+
+

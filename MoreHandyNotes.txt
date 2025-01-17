@@ -1,0 +1,57 @@
+=========================================================================================
+===================================   NOTE 5  ===========================================
+=========================================================================================
+////////////////////////////////   Arch - Linux   ///////////////////////////////////////
+=========================================================================================
+Keyboard Model: Generic 105-key PC (intl.)
+=========================================================================================
+root@xx: iwctl
+root@xx: device list
+root@xx: station wlan0 scan
+root@xx: station get-networks
+root@xx: station wlan0 connect Mesolavi24  /////  PWD: sama#TITA10%
+or -- or  --  or -- or  --  or -- or  --  or -- or  --  or -- or  --  or -- or  --  
+root@xx: station wlan0 connect "HUAWEI P9 lite 2017"   ////  PWD: Elenitsa34#%&Karambaba
+-----------------------------------------------------------------------------------------
+
+root@xx: station wlan0 show
+root@xx: exit
+
+-----------------------------------------------------------------------------------------
+
+root@archiso '# ping 1.1.1.1
+root@archiso '# archinstall
+
+-----------------------------------------------------------------------------------------
+
+Post install configurations, installs, setups
+---------------------------------------------
+[xx@elenitsa ~]$ setfont ter-132b
+[xx@elenitsa ~]$ nano /etc/pacman.conf
+[xx@elenitsa ~]$ nano /etc/pacman.d/mirrorlist 
+
+## Good mirrors:  P.S. : Before using this mirrors, check if they are still fantastic for you!
+https://mirror.osbeck.com/archlinux/
+https://mirror.cyberbits.eu/archlinux/
+https://de.arch.niranjan.co/
+https://mirror.icarilla.de/archlinux/
+
+
+
+## After this 'mirrorlist' includes sync the mirrors;
+[xx@elenitsa ~]$ pacman -Syy
+
+------------------------------------------------------------------------------------------
+==========================================================================================
+
+
+                                                  
+
+
+
+
+
+
+
+
+
